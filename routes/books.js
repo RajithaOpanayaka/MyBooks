@@ -4,7 +4,14 @@ var express=require("express"),
 
 ///index
 router.get("/books",function(req,res){
-	res.render("Books/index");
+	Book.find({},function(err,books){
+		if(err){
+			console.log(err);
+		}else{
+			res.render("Books/index",{books:books});
+		}
+	});
+	
 });
 ///new book
 router.get("/books/new",function(req,res){
