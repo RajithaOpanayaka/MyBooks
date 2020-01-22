@@ -1,13 +1,16 @@
+<%-include("../partials/header") %>
 <h1>Welcome to the index page</h1>
 
-<a href="/books/new">Add New Book</a>
+<a class="ui primary button" href="/books/new">Add New Book</a>
 
 <% books.forEach(function(book){ %>
 	<div>
 		<h1><%=book.title%></h1>
 		<%=book.author %>
 		<p><%=book.description%></p>
-		<a href="/books/<%=book._id%>">Show more</a>
+		<a class="ui blue basic button" href="/books/<%=book._id%>">Show more</a>
 	</div>
 	<hr>
 <% }) %>
+
+<%-include("../partials/footer") %>
