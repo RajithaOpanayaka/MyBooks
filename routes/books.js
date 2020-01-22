@@ -29,5 +29,16 @@ router.post("/books",function(req,res){
 	});
 });
 
+///show route
+router.get("/books/:id",function(req,res){
+	Book.findById(req.params.id,function(err,book){
+		if(err){
+			console.log(err);
+		}else{
+			res.render("Books/show",{book:book});
+		}
+	});
+});
+
 
 module.exports=router;
