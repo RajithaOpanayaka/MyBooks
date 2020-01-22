@@ -4,13 +4,24 @@
 <a class="ui primary button" href="/books/new">Add New Book</a>
 
 <% books.forEach(function(book){ %>
-	<div>
-		<h1><%=book.title%></h1>
-		<%=book.author %>
-		<p><%=book.description%></p>
-		<a class="ui blue basic button" href="/books/<%=book._id%>">Show more</a>
+	<div class="ui card">
+		<div class="image">
+			<img src="<%=book.img%>">
+		</div>
+		<div class="content">
+			<div class="header">
+				<%=book.title%>
+			</div>
+			<div class="description">
+					<%-book.description.substring(0,100)%>...
+			</div>
+			<div class="extra content">
+				<div class="ui buttons">
+					<a href="/books/<%=book._id%>" class="ui basic green button">Show More</a>
+				</div>
+			</div>
+		</div>
 	</div>
-	<hr>
 <% }) %>
 
 <%-include("../partials/footer") %>
