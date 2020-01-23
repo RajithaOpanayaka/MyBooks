@@ -40,5 +40,27 @@ router.get("/books/:id",function(req,res){
 	});
 });
 
+////edit
+router.get("/books/:id/edit",function(req,res){
+	Book.findById(req.params.id,function(err,book){
+		if(err){
+			console.log(err);
+		}else{
+			res.render("Books/edit",{book,book});
+		}
+	});
+	
+});
+
+router.put("/books/:id",function(req,res){
+	Book.findByIdAndUpdate(req.params.id,req.body.book,function(err,book){
+		if(err){
+			console.log(err);
+		}else{
+			res.redirect("/books/"+req.params.id);
+		}
+	});
+});
+
 
 module.exports=router;
