@@ -1,0 +1,9 @@
+<h1>Edit <%=book.title%></h1>
+
+<form action="/books/<%=book._id%>?_method=PUT" method="POST"> 
+	<input type="text" value="<%=book.title%>" name="book[title]">
+	<input type="text" value="<%=book.author%>" name="book[author]">
+	<input type="text" value="<%=book.img%>" name="book[img]">
+	<input type="text" value="<%=book.description%>" name="book[description]">
+	<button>Submit</button>
+</form>
