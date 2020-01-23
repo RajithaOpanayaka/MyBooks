@@ -62,5 +62,15 @@ router.put("/books/:id",function(req,res){
 	});
 });
 
+router.delete("/books/:id",function(req,res){
+	Book.findByIdAndRemove(req.params.id,function(err,book){
+		if(err){
+			res.redirect("/books");
+		}else{
+			res.redirect("/books");
+		}
+	});
+});
+
 
 module.exports=router;

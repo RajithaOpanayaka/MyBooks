@@ -3,7 +3,11 @@
 <h1><%=book.title%></h1>
 <p><%=book.description%></p>
 
-<a class="ui blue basic button" href="/books">Go Back</a>
 <a class="ui orange basic button" href="/books/<%=book._id%>/edit">Edit</a>
+<form action="/books/<%=book._id%>?_method=DELETE" method="POST">
+	<button class="ui red basic button">Delete</button>
+</form>
+
+<a class="ui blue basic button" href="/books">Go Back</a>
 
 <%-include("../partials/footer") %>
