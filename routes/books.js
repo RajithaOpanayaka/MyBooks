@@ -31,7 +31,7 @@ router.post("/books",function(req,res){
 
 ///show route
 router.get("/books/:id",function(req,res){
-	Book.findById(req.params.id,function(err,book){
+	Book.findById(req.params.id).populate("comments").exec(function(err,book){
 		if(err){
 			console.log(err);
 		}else{

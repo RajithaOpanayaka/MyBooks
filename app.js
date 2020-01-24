@@ -10,7 +10,7 @@ var express     =require("express"),
  indexRoutes    =require("./routes/index");
 	
 
-mongoose.connect("mongodb://localhost/book");
+mongoose.connect("mongodb://localhost/bookv1");
 
 
 app.listen(3000,function(){

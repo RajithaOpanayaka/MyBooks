@@ -12,4 +12,9 @@
 
 <a class="ui blue basic button" href="/books/<%=book._id%>/comments/new">Add Comment</a>
 
+<%book.comments.forEach(function(comment){%>
+	<p><%=comment.author%></p>
+	<p><%=comment.text%><p>
+<%})%>
+
 <%-include("../partials/footer") %>

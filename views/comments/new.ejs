@@ -1,6 +1,6 @@
-<h1>Add New Comment</h1>
+<h1>Add New Comment <%=book.title%></h1>
 
-<form action="/books/<%=book_id%>/comments" method="POST">
+<form action="/books/<%=book._id%>/comments" method="POST">
 	<input type="text" placeholder="comment" name="comment[text]">
 	<input type="text" placeholder="author" name="comment[author]">
 	<button>Submit</button>
