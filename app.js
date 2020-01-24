@@ -5,6 +5,7 @@ var express     =require("express"),
 	mongoose    =require("mongoose"),
   bodyParser    =require("body-parser"),
   booksRoutes   =require("./routes/books"),
+  commentRoutes =require("./routes/comments");
   methodOverride=require("method-override"),
  indexRoutes    =require("./routes/index");
 	
@@ -23,3 +24,4 @@ app.set("view engine","ejs");
 
 app.use(indexRoutes);
 app.use(booksRoutes);
+app.use(commentRoutes);
