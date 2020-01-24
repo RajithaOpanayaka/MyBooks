@@ -1,6 +1,7 @@
 var express     =require("express"),
 		app     =express(),
 	   Book     =require("./models/book"),
+	  Comment   =require("./models/comment"),
 	mongoose    =require("mongoose"),
   bodyParser    =require("body-parser"),
   booksRoutes   =require("./routes/books"),
