@@ -35,5 +35,26 @@ router.post("/books/:id/comments",function(req,res){
 	});
 });
 
+router.get("/books/:id/comments/:comment_id/edit",function(req,res){
+	Comment.findById(req.params.comment_id,function(err,comment){
+		if(err){
+			console.log(err);
+		}else{
+			res.render("comments/edit",{comment:comment,book_id:req.params.id});
+		}
+	});
+	
+});
+
+router.put("/books/:id/comments/:comment_id",function(req,res){
+			 Comment.findByIdAndUpdate(req.params.comment_id,req.body.comment,function(err,updateComment){
+					if(err){
+			 		console.log(err);
+			 	}else{
+			 		res.redirect("/books/"+req.params.id);
+			 	}
+			 });
+
+});
 
 module.exports=router;
