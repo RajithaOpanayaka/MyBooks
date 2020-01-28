@@ -15,6 +15,7 @@
 <%book.comments.forEach(function(comment){%>
 	<p><%=comment.author%></p>
 	<p><%=comment.text%><p>
+	<a href="/books/<%=book._id%>/comments/<%=comment._id%>/edit">Edit</a>
 <%})%>
 
 <%-include("../partials/footer") %>
