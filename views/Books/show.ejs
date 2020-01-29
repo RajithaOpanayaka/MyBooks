@@ -1,24 +1,38 @@
 <%-include("../partials/header") %>
 
-<h1><%=book.title%></h1>
-<p><%=book.description%></p>
 
-<a class="ui orange basic button" href="/books/<%=book._id%>/edit">Edit</a>
-<form action="/books/<%=book._id%>?_method=DELETE" method="POST">
-	<button class="ui red basic button">Delete</button>
-</form>
+<div class="ui segment">
+		<h1><%=book.title%></h1>
+		<img class="ui centered big image" src="<%=book.img%>">
 
-<a class="ui blue basic button" href="/books">Go Back</a>
+		<p><%=book.description%></p>
 
-<a class="ui blue basic button" href="/books/<%=book._id%>/comments/new">Add Comment</a>
+		<a class="ui orange basic button" href="/books/<%=book._id%>/edit">Edit</a>
+		<form action="/books/<%=book._id%>?_method=DELETE" method="POST">
+			<button class="ui red basic button">Delete</button>
+		</form>
 
-<%book.comments.forEach(function(comment){%>
-	<p><%=comment.author%></p>
-	<p><%=comment.text%><p>
-	<a href="/books/<%=book._id%>/comments/<%=comment._id%>/edit">Edit</a>
-	<form action="/books/<%=book._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
-		<button>Delete</button>
-	</form>
-<%})%>
+		<a class="ui blue basic button" href="/books">Go Back</a>
+
+		<a class="ui blue basic button" href="/books/<%=book._id%>/comments/new">Add Comment</a>
+
+		<div class="ui comments">
+			<h3 class="ui dividing header">Comments</h3>
+			<%book.comments.forEach(function(comment){%>
+				<div class="comment">
+					<div class="content">
+						<div class="author"><%=comment.author%></div>
+						<div class="text"><%=comment.text%></div>
+						<div class="actions">
+							<a class="mini ui orange button" href="/books/<%=book._id%>/comments/<%=comment._id%>/edit">Edit</a>
+							<form action="/books/<%=book._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
+								<button class="mini ui red button">Delete</button>
+							</form>
+						</div>
+				</div>
+			<%})%>
+		</div>
+
+</div>
 
 <%-include("../partials/footer") %>
