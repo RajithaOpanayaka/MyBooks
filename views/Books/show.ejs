@@ -16,6 +16,9 @@
 	<p><%=comment.author%></p>
 	<p><%=comment.text%><p>
 	<a href="/books/<%=book._id%>/comments/<%=comment._id%>/edit">Edit</a>
+	<form action="/books/<%=book._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
+		<button>Delete</button>
+	</form>
 <%})%>
 
 <%-include("../partials/footer") %>

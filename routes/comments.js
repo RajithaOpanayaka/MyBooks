@@ -57,4 +57,14 @@ router.put("/books/:id/comments/:comment_id",function(req,res){
 
 });
 
+router.delete("/books/:id/comments/:comment_id",function(req,res){
+	Comment.findByIdAndRemove(req.params.comment_id,function(err){
+		if(err){
+			console.log(err);
+		}else{
+			res.redirect("/books/"+req.params.id);
+		}
+	});
+});
+
 module.exports=router;
