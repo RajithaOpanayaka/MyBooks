@@ -2,6 +2,7 @@ var express     =require("express"),
 		app     =express(),
 	   Book     =require("./models/book"),
 	  Comment   =require("./models/comment"),
+	  User      =require("./models/user"),
 	mongoose    =require("mongoose"),
   bodyParser    =require("body-parser"),
   booksRoutes   =require("./routes/books"),
@@ -10,7 +11,7 @@ var express     =require("express"),
  indexRoutes    =require("./routes/index");
 	
 
-mongoose.connect("mongodb://localhost/bookv1");
+mongoose.connect("mongodb://localhost/bookv2");
 
 
 app.listen(3000,function(){
