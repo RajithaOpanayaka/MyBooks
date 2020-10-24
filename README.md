@@ -1,2 +1,2 @@
 # MyBooks
-Comments,reviews and descriptions about books
+Comments and reviews
